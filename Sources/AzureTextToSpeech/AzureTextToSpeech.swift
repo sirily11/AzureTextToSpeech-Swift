@@ -197,12 +197,12 @@ public class AzureTextToSpeech {
         }
     }
     
-    public func pickVoice(voice: AzureVoice) {
+    public func pickVoice(voice: AzureVoice) async {
         self.selectedVoice = voice
         speechService.pickVoice(voice: voice)
     }
     
-    public func pickFormat(format: AzureAudioFormat) {
+    public func pickFormat(format: AzureAudioFormat) async {
         self.selectedFormat = format
         speechService.pickFormat(format: format)
     }
