@@ -113,7 +113,7 @@ class AzureTextToSpeechService {
 
         let response = await task.response
         if response.response?.statusCode != 200 {
-            throw AzureErrors.noAudioData
+            throw AzureErrors.noAudioData(reason: "\(response.response?.statusCode ?? 0), \(response.response?.description ?? "No description")")
         }
         let downloadURL = try await task.value
         return downloadURL

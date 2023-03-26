@@ -11,7 +11,7 @@ enum AzureErrors: Error {
     case noData
     case noXML
     case noAudio
-    case noAudioData
+    case noAudioData(reason: String)
     case invalidResouceKey
     case unauthorized
     case noSelectedVoice
@@ -34,10 +34,10 @@ extension AzureErrors: LocalizedError {
             return NSLocalizedString("No data", comment: "No data")
         case .noXML:
             return NSLocalizedString("No XML", comment: "No XML")
-        case .noAudio:
+        case let .noAudio:
             return NSLocalizedString("No audio", comment: "No audio")
-        case .noAudioData:
-            return NSLocalizedString("No audio data", comment: "No audio data")
+        case let .noAudioData(reason):
+            return NSLocalizedString("No audio data", comment: "No audio data \(reason)")
         case .invalidResouceKey:
             return NSLocalizedString("Invalid resource key", comment: "Invalid resource key")
         case .unauthorized:
